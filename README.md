@@ -1,6 +1,6 @@
 # **YP! TEST BOOKER**
 
-### DESAFÍO
+# DESAFÍO
 
 ###### Actividades a desarrollar
 
@@ -20,7 +20,7 @@
 
 En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html) podrá acceder a la documentación del api de reservas.
 
-### SOLUCIÓN
+# SOLUCIÓN
 
 ###### PLAN DE PRUEBAS
 
