@@ -63,7 +63,11 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.environment.set(\"booking_token\", pm.response.json().token);"
+											"pm.environment.set(\"booking_token\", pm.response.json().token);\r",
+											"\r",
+											"pm.test(\"El endpoint responde 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -112,7 +116,7 @@
 					"name": "Booking",
 					"item": [
 						{
-							"name": "Booking : Create",
+							"name": "Booking : Create by JSON",
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -128,6 +132,103 @@
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n    \"firstname\" : \"Juan\",\r\n    \"lastname\" : \"Davila\",\r\n    \"totalprice\" : 414,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2022-11-01\",\r\n        \"checkout\" : \"2022-12-01\"\r\n    },\r\n    \"additionalneeds\" : \"Vista al parque\"\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Create by XML",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<booking>\r\n    <firstname>Juan XML</firstname>\r\n    <lastname>Davila</lastname>\r\n    <totalprice>616</totalprice>\r\n    <depositpaid>true</depositpaid>\r\n    <bookingdates>\r\n      <checkin>2022-01-01</checkin>\r\n      <checkout>2022-12-01</checkout>\r\n    </bookingdates>\r\n    <additionalneeds>Breakfast</additionalneeds>\r\n</booking>"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Create by URL",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstname",
+											"value": "Juanito URLEncode",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Davila URL",
+											"type": "text"
+										},
+										{
+											"key": "totalprice",
+											"value": "717",
+											"type": "text"
+										},
+										{
+											"key": "depositpaid",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "bookingdates[checkin]",
+											"value": "2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "bookingdates[checkout]",
+											"value": "2022-12-01",
+											"type": "text"
+										}
+									]
 								},
 								"url": {
 									"raw": "https://restful-booker.herokuapp.com/booking",
@@ -223,7 +324,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2740"
+											"value": "1121"
 										}
 									]
 								}
@@ -231,7 +332,7 @@
 							"response": []
 						},
 						{
-							"name": "Booking : Update",
+							"name": "Booking : Update by JSON",
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -278,7 +379,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2740"
+											"value": "1121"
 										}
 									]
 								}
@@ -286,7 +387,143 @@
 							"response": []
 						},
 						{
-							"name": "Booking : Update attribute",
+							"name": "Booking : Update by XML",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic {{booking_authorization}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<booking>\r\n    <firstname>Juanito XML Update</firstname>\r\n    <lastname>Davila Daz</lastname>\r\n    <totalprice>9090</totalprice>\r\n    <depositpaid>true</depositpaid>\r\n    <bookingdates>\r\n      <checkin>2022-01-01</checkin>\r\n      <checkout>2022-01-01</checkout>\r\n    </bookingdates>\r\n    <additionalneeds>Cafe para el desayuno</additionalneeds>\r\n</booking>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/:id",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1121"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Update by URL",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic {{booking_authorization}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstname",
+											"value": "Juanito Update by URL",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Davila Update URL",
+											"type": "text"
+										},
+										{
+											"key": "totalprice",
+											"value": "9292",
+											"type": "text"
+										},
+										{
+											"key": "depositpaid",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "bookingdates[checkin]",
+											"value": "2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "bookingdates[checkout]",
+											"value": "2022-12-01",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/:id",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1121"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Update attribute by JSON",
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -311,7 +548,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"firstname\" : \"Juanito\",\r\n    \"lastname\" : \"Quizpe\"\r\n}",
+									"raw": "{\r\n    \"firstname\" : \"Juan by JSON\",\r\n    \"lastname\" : \"Quizpe\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -333,7 +570,123 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2740"
+											"value": "1121"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Update attribute by XML",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic {{booking_authorization}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<booking>\r\n    <firstname>Jhon</firstname>\r\n    <lastname>Quizpe by XML</lastname>\r\n  </booking>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/:id",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1121"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Update attribute by URL",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic {{booking_authorization}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstname",
+											"value": "Jhon by URL",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Quizpe Salas",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/:id",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1121"
 										}
 									]
 								}
