@@ -68,7 +68,7 @@ El plan de pruebas se enmarca al modulo 010100 del sistema Booker la cual corres
 
 De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la configuracion del entorno de pruebas.
 
-##### Instalacion y cuentas.
+##### Instalacion y cuentas
 
 - Descargar el sistema de control de versiones desde la url https://git-scm.com/download/win en su version para el SO Windows.
 - Descargar e instalar el sistema adminsitrador de control de versiones SourceTree desde la url https://www.sourcetreeapp.com/ en su version para el SO Windows.
@@ -79,38 +79,43 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 
 ##### Configuración
 
-**Postman:** Abrir el aplicativo instalador y crear un espacio de trabajo (workspace) especifico para las labores de pruebas.
+**Postman**
 
-**Postman:** Nos ubicamos en el workpace creado y añadimos una colección en la cual se almacenara los objetivos/scripts de pruebas.
+- Abrir el aplicativo instalador y crear un espacio de trabajo (workspace) especifico para las labores de pruebas.
+- Nos ubicamos en el workpace creado y añadimos una colección en la cual se almacenara los objetivos/scripts de pruebas.
+- Nos ubicamos en la configuracion de entorno (enviroments) del aplicativo y creamos el entorno QA Env, en este entorno se almacenara las variables de entorno necesarias para los scripts de pruebas en Postman.
+- Para llevar el control del archivo de postman en GitHub podemos realizar alguna de las siguientes acciones:
 
-**Postman:** Nos ubicamos en la configuracion de entorno (enviroments) del aplicativo y creamos el entorno QA Env, en este entorno se almacenara las variables de entorno necesarias para los scripts de pruebas en Postman.
+  - Configurar el workspace de postman dentro del espacio de trabajo local (Carpeta clonada con SourceTree).
+  - Cada que vayamos avanzando con la creacion de nuestro script en Postman, exportemos la colleccion y lo coloquemos en el espacion de trabajo local (Carpeta clonada con SourceTree).
 
-**GitHub:** En el panel de trabajo de la plataforma ubicarnos en la opción "New repository" y crear el repositorio "YpTest_APIBooker", esto por defecto nos crea en branch main y el archivo README.md.
+**GitHub**
 
-**SourceTree:** Abrimos el aplicativo, seguimos los pasos que nos indica para el uso del aplicativo (solo la primera vez que se inicia), una vez que estamos en la interfaz principal nos ubicamos en la opcion "*File - Clone/New*", seleccionamos la opción Clone e ingresamos los datos que nos solicita dicha interfaz:
+- En el panel de trabajo de la plataforma ubicarnos en la opción "New repository" y crear el repositorio "YpTest_APIBooker", esto por defecto nos crea en branch main y el archivo README.md.
 
-- La url del repositorio, creado previamente en GitHub.
-- La ruta local donde se clonará el repositorio en nuestro equipo de trabajo. Esta ruta será nuestro espacio de trabajo local para este plan de pruebas.
+**SourceTree**
 
-**SourceTree:** Una vez clonado el repositorio de GitHub, verificamos la creacion de nuestro espacion de trabajo, de acuerdo a configuraciones previas nuestra carpeta debe tener el nombre "YpTest_APIBooker". *Ejm: D:\Workspace\Yape\YpTest_APIBooker*
+- Abrimos el aplicativo, seguimos los pasos que nos indica para el uso del aplicativo (solo la primera vez que se inicia), una vez que estamos en la interfaz principal nos ubicamos en la opcion "*File - Clone/New*", seleccionamos la opción Clone e ingresamos los datos que nos solicita dicha interfaz:
 
-**VSCode:** Abrimos el aplicativo, nos uicamos en la opcion *"**File - Open Folder"* y abrimos el forlder "YpTest_APIBooker" que corresponde a nuestro espacio de trabajo. Aqui trabajemos con los archivos necesarios para el plan de pruebas.
+  - La url del repositorio, creado previamente en GitHub.
+  - La ruta local donde se clonará el repositorio en nuestro equipo de trabajo. Esta ruta será nuestro espacio de trabajo local para este plan de pruebas.
+- Una vez clonado el repositorio de GitHub, verificamos la creacion de nuestro espacion de trabajo, de acuerdo a configuraciones previas nuestra carpeta debe tener el nombre "YpTest_APIBooker". *Ejm: D:\Workspace\Yape\YpTest_APIBooker*
 
-**Postman:** Para llevar el control del archivo de postman en GitHub podemos realizar alguna de las siguientes acciones:
+**VSCode**
 
-- Configurar el workspace de postman dentro del espacio de trabajo local (Carpeta clonada con SourceTree).
-- Cada que vayamos avanzando con la creacion de nuestro script en Postman, exportemos la colleccion y lo coloquemos en el espacion de trabajo local (Carpeta clonada con SourceTree).
+- Abrimos el aplicativo, nos uicamos en la opcion *"**File - Open Folder"* y abrimos el forlder "YpTest_APIBooker" que corresponde a nuestro espacio de trabajo. Aqui trabajemos con los archivos necesarios para el plan de pruebas.
 
-**Jenkins:** Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: D:\Workspace\Jenkins y en ella colocar el archivo war.
+**Jenkins**
 
-**Jenkins:** Crear una archivo de configuracion (runJenkins.bat) de inicio de Jenkins.
+- Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: D:\Workspace\Jenkins y en ella colocar el archivo war.
+- Crear una archivo de configuracion (runJenkins.bat) de inicio de Jenkins.
 
-```
-set JENKINS_HOME=local-jenkins-config
-java -jar jenkins.war --httpPort=9090
-```
+  ```
+  set JENKINS_HOME=local-jenkins-config
+  java -jar jenkins.war --httpPort=9090
+  ```
 
-Ejecutar *runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
+  Ejecutar*runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
 
 ### 6. Estrategías de Pruebas
 
