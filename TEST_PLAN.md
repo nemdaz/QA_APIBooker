@@ -108,18 +108,6 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 
 - Abrimos el aplicativo, nos uicamos en la opcion *"**File - Open Folder"* y abrimos el forlder "YpTest_APIBooker" que corresponde a nuestro espacio de trabajo. Aqui trabajemos con los archivos necesarios para el plan de pruebas.
 
-**Jenkins**
-
-- Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: D:\Workspace\Jenkins y en ella colocar el archivo war.
-- Crear una archivo de configuracion (runJenkins.bat) de inicio de Jenkins.
-
-  ```
-  set JENKINS_HOME=local-jenkins-config
-  java -jar jenkins.war --httpPort=9090
-  ```
-
-  Ejecutar*runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
-
 **NodeJS**
 
 - Instalamos Newman para disponer de la linea de comandos de Postman.
@@ -131,6 +119,21 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 **Newman**
 
 - Verificamos que el comando exista ejecutando el comando: `newman --version`
+
+**Jenkins**
+
+- Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: D:\Workspace\Jenkins y en ella colocar el archivo war.
+- Crear una archivo de configuracion (runJenkins.bat) de inicio de Jenkins.
+
+  ```
+  set JENKINS_HOME=local-jenkins-config
+  java -jar jenkins.war --httpPort=9090
+  ```
+
+  Ejecutar *runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
+- Al ejecutar Jenkins por primera vez dejar la configuracion por defecto y establecer el usuario y clave.
+- Al ingresar al panel de control de Jenkins por primera vez, instalar el plugin NodeJS, reiniciar Jenkins.
+- Volvemos a ingresar a Jenkins en la opcion *"Panel de Control / Administrar Jenkins / Global Tool Configuration"* y ubicamos la seccion NodeJS, en ella pulsamos en *"Añadir NodeJS"*, colocamos un nombre (Ejm. My Local NodeJS), quitamos el check *"Instalar automaticamente"* y finalmente ingresamos nuestro directorio de instalacion de NodeJS (Ejm: D:\Program Files\nodejs). Guardamos los cambios y salimos.
 
 ### 6. Estrategías de Pruebas
 
