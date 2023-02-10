@@ -127,7 +127,7 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 
   ```
   set JENKINS_HOME=local-jenkins-config
-  java -jar jenkins.war --httpPort=9090
+  java -Dfile.encoding=UTF-8 -jar jenkins.war --httpPort=9090
   ```
 
   Ejecutar *runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
