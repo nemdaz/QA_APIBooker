@@ -122,7 +122,7 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 
 **Jenkins**
 
-- Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: D:\Workspace\Jenkins y en ella colocar el archivo war.
+- Con el archivo war descargado, crear una ruta de instalacion manual para Jenkins, como por Ejm: *D:\Workspace\Jenkins* y en ella colocar el archivo war.
 - Crear una archivo de configuracion (runJenkins.bat) de inicio de Jenkins.
 
   ```
