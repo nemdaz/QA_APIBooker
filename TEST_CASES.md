@@ -10,7 +10,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 
 ### Lista de casos de pruebas
 
-##### CP010
+##### CP010 - PING
 
 | -                              | Detalle                                                                                     |
 | :----------------------------- | :------------------------------------------------------------------------------------------ |
@@ -24,7 +24,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | :----------- | :---------------------------------- | :---- | :-------------------------------- |
 | 1            | Se envía solicitud GET al EndPoint | -     | Codigo: 201<br />Mensaje: Created |
 
-##### CP020
+##### CP020 - TOKEN
 
 | -                              | Detalle                                                                                                                                                          |
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | 1            | Se envía solicitud POST al EndPoint segun la especificación. | Credenciales de acceso válidos.<br />En formato JSON y especificacion de la API.    | Código: 200<br />Respuesta: Objeto JSON con el attributo token.                   |
 | 2            | Se envía solicitud POST al EndPoint segun la especificación. | Credenciales de acceso NO válidos.<br />En formato JSON y especificacion de la API. | Código: 200<br />Respuesta: Objeto JSON que contiene mensaje de error controlado. |
 
-##### CP030
+##### CP030 - TOKEN
 
 | -                              | Detalle                                                                                                                                                    |
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -54,7 +54,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | 1            | Se envía solicitud POST al EndPoint.<br />Header del request diferente al especificado. | Credenciales de acceso válidos.<br />En formato JSON y especificacion de la API | Código: Diferente de 200<br />Respuesta: JSON con mensaje de error controlado.          |
 | 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado.   | Credenciales de acceso válidos.<br />Estructura diferente de JSON.              | Código: Diferente de 200<br />Respuesta: Mensaje de error del servidor o no controlado. |
 
-##### CP040 - CREATE
+##### CP040 - CREATE (JSON)
 
 | -                              | Detalle                                                                                                                                                                                                                            |
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -72,7 +72,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | 4            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string con valores vacíos       |                    |
 | 5            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string con caracteres especiales |                    |
 
-##### CP050 - CREATE
+##### CP041 - CREATE (JSON)
 
 | -                              | Detalle                                                                                                                             |
 | :----------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,7 +91,17 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | 5            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos date con valor real pero formato incorrecto.<br />Ejm. 2022-31-12, 2023/01/12, 2021.31.01   |                    |
 | 6            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos date con valor No real pero formato correcto.<br />Ejm. 2022-23-01, 2023-02-31, etc         |                    |
 
-##### CP060 - READ
+##### CP050 - CREATE (XML)
+
+##### CP051 - CREATE (XML)
+
+
+##### CP060 - CREATE (URL)
+
+##### CP061 - CREATE (URL)
+
+
+##### CP070 - READ IDs
 
 | -                              | Detalle                                                                                                                                |
 | :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
@@ -108,7 +118,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | 3            | Se envía solicitud GET al EndPoint.<br />Header del request según al especificado. | Rango de fecha de la reserva.<br />Se ingresa los parametro de checkin y/o chekout.                                                                   | Devuelve los Ids coincidentes con el filtro.<br />Devuelve array vacío si no hay coincidencias. |
 | 4            | Se envía solicitud GET al EndPoint.<br />Header del request según al especificado. | Se ingresa valores para todos los filtros.<br />Se ingresa los parametros de nombre y apellido.<br />Se ingresa los parametro de checkin y chekout. | Devuelve los Ids coincidentes con el filtro.<br />Devuelve array vacío si no hay coincidencias. |
 
-##### CP070 - READ
+##### CP071 - READ IDs
 
 | -                              | Detalle                                                                                                                                      |
 | :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -140,7 +150,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 
 
 
-CP090 - UPDATE (JSON)
+##### CP090 - UPDATE (JSON)
 
 Happy
 
@@ -149,6 +159,8 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JS
 Complete / Partial
 
 
+##### CP091 - UPDATE (JSON)
+
 No Happy
 
 Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JSON) correcta pero formato y/o valores no definidos retorna mensaje de error.
@@ -156,7 +168,7 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JS
 Complete / Partial
 
 
-CP091 - UPDATE (XML)
+##### CP100 - UPDATE (XML)
 
 Happy
 
@@ -165,6 +177,8 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XM
 Complete / Partial
 
 
+##### CP110 - UPDATE (XML)
+
 No Happy
 
 Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XML) correcta pero formato y/o valores no definidos retorna mensaje de error.
@@ -172,7 +186,7 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XM
 Complete / Partial
 
 
-CP092 - UPDATE (URL)
+##### CP120 - UPDATE (URL)
 
 Happy
 
@@ -181,6 +195,8 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (UR
 Complete / Partial
 
 
+##### CP121 - UPDATE (URL)
+
 No Happy
 
 Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (URL Encode) correcta pero formato y/o valores no definidos retorna mensaje de error.
@@ -188,7 +204,7 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (UR
 Complete / Partial
 
 
-CP110 - DELETE
+##### CP130 - DELETE
 
 Happy
 
@@ -199,6 +215,8 @@ With Cookie
 With Basic
 
 
+##### CP131 - DELETE
+
 No Happy
 
 Verificar que el endpoint Booking/DELETE al recibir un id de reserva (booking) incorrecto o parámetro no definido devuelve un mensaje de error.
@@ -207,6 +225,12 @@ With Cookie
 
 With Basic
 
+
+##### CP140 - CREATE, UPDATE, UPDATE PARTIAL
+
+No Happy
+
+Verificar que los EndPoint CREATE, UPDATE (Incluye Completo y Parcial) al recibir como entrada parametros/datos/objetos que no cumplen con la estructura definida (json, xml, url) responde con mensaje de error.
 
 
 END

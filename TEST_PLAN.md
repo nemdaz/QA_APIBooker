@@ -63,6 +63,8 @@ El plan de pruebas se enmarca al modulo 010100 del sistema Booker la cual corres
 | Software | Git                  | Herramienta de controlde versiones.                       |
 | Servicio | GitHub               | Repositorio en la nube para el control de versiones git. |
 | Software | Jenkins v2.375.3 LTS | Herramienta para la intergracion continua                 |
+| Software | NodeJS               |                                                           |
+| Software | newman (cli)         | Cliente de linea de comandos de Postman                   |
 
 ### 5. Configuracion del Entorno de Pruebas
 
@@ -76,6 +78,7 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 - Descargar e instalar Postman; la descarga del instalador se realiza desde la url https://www.postman.com/downloads/ en su version para el SO Windows.
 - Crear una cuenta en el servicio cloud de control de versiones https://github.com/.
 - Descargar la version war de Jenkins desde la url https://www.jenkins.io/download/.
+- Descargar e instalar NodeJs de manera global, usar la url https://nodejs.org/en/.
 
 ##### Configuración
 
@@ -116,6 +119,18 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
   ```
 
   Ejecutar*runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
+
+**NodeJS**
+
+- Instalamos Newman para disponer de la linea de comandos de Postman.
+
+  ```
+  npm install -g newman
+  ```
+
+**Newman**
+
+- Verificamos que el comando exista ejecutando el comando: `newman --version`
 
 ### 6. Estrategías de Pruebas
 
