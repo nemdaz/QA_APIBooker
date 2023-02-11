@@ -24,7 +24,7 @@ En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://r
 
 ###### PLAN DE PRUEBAS
 
-Ver documento: TEST_PLAN.md
+Ver documento: [TEST_PLAN.md](./TEST_PLAN.md)
 
 ###### COBERTURA DE PRUEBAS
 
