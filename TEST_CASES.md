@@ -49,10 +49,10 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | **Resultado esperado**   | El endpoint responde con el campo token.                                                                                                                   |
 | **Etiquetas**            | CUS01, UnHappy Path                                                                                                                                        |
 
-| Nro. de Paso | Descripcion                                                                               | Datos                                                                            | Resultado esperado                                                                       |
-| :----------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
-| 1            | Se envía solicitud POST al EndPoint.<br />Header del request diferente al especificado. | Credenciales de acceso válidos.<br />En formato JSON y especificacion de la API | Código: Diferente de 200<br />Respuesta: JSON con mensaje de error controlado.          |
-| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado.   | Credenciales de acceso válidos.<br />Estructura diferente de JSON.              | Código: Diferente de 200<br />Respuesta: Mensaje de error del servidor o no controlado. |
+| Nro. de Paso | Descripcion                                                                               | Datos                                                                                                                      | Resultado esperado                                                                       |
+| :----------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request diferente al especificado. | Header Content-Type no especificado<br />Credenciales de acceso válidos.<br />En formato JSON y especificacion de la API | Código: Diferente de 200<br />Respuesta: JSON con mensaje de error controlado.          |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado.   | Credenciales de acceso válidos.<br />Estructura diferente de JSON.                                                        | Código: Diferente de 200<br />Respuesta: Mensaje de error del servidor o no controlado. |
 
 ##### CP040 - CREATE (JSON)
 
@@ -64,13 +64,13 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | **Resultado esperado**   | El endpoint responde con objeto JSON con una campo identificador y el objeto enviado.                                                                                                                                              |
 | **Etiquetas**            | CUS02, Happy Path                                                                                                                                                                                                                  |
 
-| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                        | Resultado esperado |
-| :----------- | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- | :----------------- |
-| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con valores según definición y reales.  |                    |
-| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string reales y extensos.        |                    |
-| 3            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string extensos.                 |                    |
-| 4            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string con valores vacíos       |                    |
-| 5            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string con caracteres especiales |                    |
+| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                        | Resultado esperado                                                    |
+| :----------- | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con valores según definición y reales.  | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string reales y extensos.        | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 3            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string extensos.                 | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 4            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string con valores vacíos       | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 5            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | JSON con los datos de la reserva (booking).<br />Campos completos con tipos string con caracteres especiales | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
 
 ##### CP041 - CREATE (JSON)
 
@@ -93,13 +93,43 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 
 ##### CP050 - CREATE (XML)
 
-##### CP051 - CREATE (XML)
+| -                              | Detalle                                                                                                                                                                                                                           |
+| :----------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pre-requisitos**       | EndPoint: https://restful-booker.herokuapp.com/booking                                                                                                                                                                           |
+| **Datos de entrada**     | -                                                                                                                                                                                                                                 |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/CREATE al recibir los datos en estructura (XML), formato y valores correctos según la especificación devuelve un objeto JSON que contine un identificador y los datos enviados al EndPoint. |
+| **Resultado esperado**   | El endpoint responde con objeto JSON con una campo identificador y el objeto enviado.                                                                                                                                             |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                                                                                                 |
 
+| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                       | Resultado esperado                                                    |
+| :----------- | :-------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | XML con los datos de la reserva (booking).<br />Campos completos con valores según definición y reales.  | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | XML con los datos de la reserva (booking).<br />Campos completos con tipos string reales y extensos.       | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 3            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | XML con los datos de la reserva (booking).<br />Campos completos con tipos string extensos.                 | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 4            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | XML con los datos de la reserva (booking).<br />Campos completos con tipos string con valores vacíos       | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 5            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | XML con los datos de la reserva (booking).<br />Campos completos con tipos string con caracteres especiales | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+
+##### CP051 - CREATE (XML)
 
 ##### CP060 - CREATE (URL)
 
-##### CP061 - CREATE (URL)
+| -                              | Detalle                                                                                                                                                                                                                                  |
+| :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pre-requisitos**       | EndPoint: https://restful-booker.herokuapp.com/booking                                                                                                                                                                                  |
+| **Datos de entrada**     | -                                                                                                                                                                                                                                        |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/CREATE al recibir los datos en estructura (URL Encode), formato y valores correctos según la especificación devuelve un objeto JSON que contine un identificador y los datos enviados al EndPoint. |
+| **Resultado esperado**   | El endpoint responde con objeto JSON con una campo identificador y el objeto enviado.                                                                                                                                                    |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                                                                                                        |
 
+| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                              | Resultado esperado                                                    |
+| :----------- | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | URL Encode con los datos de la reserva (booking).<br />Campos completos con valores según definición y reales.  | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | URL Encode con los datos de la reserva (booking).<br />Campos completos con tipos string reales y extensos.        | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 3            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | URL Encode con los datos de la reserva (booking).<br />Campos completos con tipos string extensos.                | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 4            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | URL Encode con los datos de la reserva (booking).<br />Campos completos con tipos string con valores vacíos       | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+| 5            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | URL Encode con los datos de la reserva (booking).<br />Campos completos con tipos string con caracteres especiales | Objeto JSON con:<br />Identificador asigando<br />Datos de la reserva |
+
+##### CP061 - CREATE (URL)
 
 ##### CP070 - READ IDs
 
@@ -132,7 +162,6 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | :----------- | :---------- | :---- | :----------------- |
 | 1            |             |       |                    |
 
-
 ##### CP080 - READ DETAIL
 
 | -                              | Detalle                                                                                                                                       |
@@ -148,8 +177,6 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 | 1            | Se envía solicitud GET al EndPoint.<br />Header del request según al especificado. | Se especifica el valor del Id (identificados de la reserva).<br />El identificador existe.    | Objeto JSON con los datos de la reserva.         |
 | 2            | Se envía solicitud GET al EndPoint.<br />Header del request según al especificado. | Se especifica el valor del Id (identificados de la reserva).<br />El identificador NO existe. | Código: 404<br />Se muestra mensaje: Not Found |
 
-
-
 ##### CP090 - UPDATE (JSON)
 
 Happy
@@ -157,7 +184,6 @@ Happy
 Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JSON), formato y valores correctos según la especificación devuelve un objeto JSON con todos los datos de la reserva actualizados.
 
 Complete / Partial
-
 
 ##### CP091 - UPDATE (JSON)
 
@@ -167,7 +193,6 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JS
 
 Complete / Partial
 
-
 ##### CP100 - UPDATE (XML)
 
 Happy
@@ -176,15 +201,7 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XM
 
 Complete / Partial
 
-
-##### CP110 - UPDATE (XML)
-
-No Happy
-
-Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XML) correcta pero formato y/o valores no definidos retorna mensaje de error.
-
-Complete / Partial
-
+##### CP101 - UPDATE (XML)
 
 ##### CP120 - UPDATE (URL)
 
@@ -194,15 +211,7 @@ Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (UR
 
 Complete / Partial
 
-
 ##### CP121 - UPDATE (URL)
-
-No Happy
-
-Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (URL Encode) correcta pero formato y/o valores no definidos retorna mensaje de error.
-
-Complete / Partial
-
 
 ##### CP130 - DELETE
 
@@ -214,7 +223,6 @@ With Cookie
 
 With Basic
 
-
 ##### CP131 - DELETE
 
 No Happy
@@ -225,12 +233,10 @@ With Cookie
 
 With Basic
 
-
 ##### CP140 - CREATE, UPDATE, UPDATE PARTIAL
 
 No Happy
 
 Verificar que los EndPoint CREATE, UPDATE (Incluye Completo y Parcial) al recibir como entrada parametros/datos/objetos que no cumplen con la estructura definida (json, xml, url) responde con mensaje de error.
-
 
 END
