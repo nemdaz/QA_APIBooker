@@ -22,10 +22,27 @@ En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://r
 
 # SOLUCIÓN
 
-###### PLAN DE PRUEBAS
+> ***Nota**: Se sugiere visualizar los archivos **.md** directamente en el repositorio Github o usar un editor local si se descarga el proyecto.*
 
-Ver documento: [TEST_PLAN.md](./TEST_PLAN.md)
+###### 1. Plan de Pruebas
 
-###### COBERTURA DE PRUEBAS
+- El archivo del plan de pruebas es:[TEST_PLAN.md](./TEST_PLAN.md).
 
-###### HERRAMIENTAS Y TÉCNICAS
+###### 2. Código y cobertura
+
+- El código y detalle de los scripts de la automatizacíon se encuentra en [TEST_CASES.postman_collection.json](./TEST_CASES.postman_collection.json) y otros archivos. Para mayor detalle de los archivos ver el ***Plan de Pruebas* *****sección 10***.
+- La cobertura de las pruebas es:
+  - Automatizacíon de la autenticación.
+  - Pruebas de escenarios Happy Path y UnHappy Paths de las funcionalidades CRUD del Endpoint.
+  - Verificación de códigos de respuesta en cada escenario.
+  - Prueba de disponibilidad del sistema y tiempo de respuesta.
+  - Escenarios de preubas estabelcidos en el ***Plan de Pruebas sección 7.***
+
+###### 3. Herramientas y técnicas
+
+- Para las herramientas utilizadas ver el ***Plan de Pruebas sección 4***.
+- Para las técnicas utilizadas ver el ***Plan de Pruebas sección 6***.
+
+
+
+END
