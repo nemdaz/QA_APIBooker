@@ -160,7 +160,7 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 
 | Nro. de Paso | Descripcion | Datos | Resultado esperado |
 | :----------- | :---------- | :---- | :----------------- |
-| 1            |             |       |                    |
+|              |             |       |                    |
 
 ##### CP080 - READ DETAIL
 
