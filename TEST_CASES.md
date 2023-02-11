@@ -179,27 +179,37 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 
 ##### CP090 - UPDATE (JSON)
 
-Happy
 
-Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JSON), formato y valores correctos según la especificación devuelve un objeto JSON con todos los datos de la reserva actualizados.
+| -                              | Detalle                                                                                                                                                                                                             |
+| :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Pre-requisitos**       | EndPoint: https://restful-booker.herokuapp.com/booking                                                                                                                                                             |
+| **Datos de entrada**     | -                                                                                                                                                                                                                   |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JSON), formato y valores correctos según la especificación devuelve un objeto JSON con todos los datos de la reserva actualizados. |
+| **Resultado esperado**   | El endpoint responde con objeto JSON con los datos de la reserva actualizados.                                                                                                                                      |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                                                                                   |
 
-Complete / Partial
+| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                                                                  | Resultado esperado                                     |
+| :----------- | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | Identificador en la URL del request.<br />JSON con los datos COMPLETOS de la reserva (booking).<br />Campos completos con valores según definición. | Objeto JSON con:<br />Datos de la reserva actualizados |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | Identificador en la URL del request.<br />JSON con los datos PARCIALES de la reserva (booking).<br />Campos con valores según definición.           | Objeto JSON con:<br />Datos de la reserva actualizados |
 
 ##### CP091 - UPDATE (JSON)
 
-No Happy
-
-Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (JSON) correcta pero formato y/o valores no definidos retorna mensaje de error.
-
-Complete / Partial
-
 ##### CP100 - UPDATE (XML)
 
-Happy
 
-Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XML), formato y valores correctos según la especificación devuelve un objeto XML con todos los datos de la reserva actualizados.
+| -                              | Detalle                                                                                                                                                                                                           |
+| :----------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pre-requisitos**       | EndPoint: https://restful-booker.herokuapp.com/booking                                                                                                                                                           |
+| **Datos de entrada**     | -                                                                                                                                                                                                                 |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (XML), formato y valores correctos según la especificación devuelve un objeto XML con todos los datos de la reserva actualizados. |
+| **Resultado esperado**   | El endpoint responde con objeto XML con los datos de la reserva actualizados.                                                                                                                                     |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                                                                                 |
 
-Complete / Partial
+| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                                                                  | Resultado esperado                                    |
+| :----------- | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | Identificador en la URL del request.<br />XML con los datos COMPLETOS de la reserva (booking).<br />Campos completos con valores según definición. | Objeto XML con:<br />Datos de la reserva actualizados |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | Identificador en la URL del request.<br />XML con los datos PARCIALES de la reserva (booking).<br />Campos con valores según definición.           | Objeto XML con:<br />Datos de la reserva actualizados |
 
 ##### CP101 - UPDATE (XML)
 
@@ -210,6 +220,23 @@ Happy
 Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (URL Encode), formato y valores correctos según la especificación devuelve un objeto XXX con todos los datos de la reserva actualizados.
 
 Complete / Partial
+
+
+
+| -                              | Detalle                                                                                                                                                                                |
+| :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pre-requisitos**       | EndPoint: https://restful-booker.herokuapp.com/booking                                                                                                                                |
+| **Datos de entrada**     | -                                                                                                                                                                                      |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (URL Encode), formato y valores correctos según la especificación devuelve un mensaje de confirmación |
+| **Resultado esperado**   | El endpoint responde un mensaje de confirmación.                                                                                                                                      |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                                                      |
+
+| Nro. de Paso | Descripcion                                                                             | Datos                                                                                                                                                        | Resultado esperado                           |
+| :----------- | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | Identificador en la URL del request.<br />URL Encode con los datos COMPLETOS de la reserva (booking).<br />Campos completos con valores según definición. | Response con:<br />Mensaje de confirmación. |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado. | Identificador en la URL del request.<br />URL Encode con los datos PARCIALES de la reserva (booking).<br />Campos con valores según definición.           | Response con:<br />Mensaje de confirmación  |
+
+##### CP101 - UPDATE (XML)
 
 ##### CP121 - UPDATE (URL)
 
