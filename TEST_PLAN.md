@@ -63,8 +63,9 @@ El plan de pruebas se enmarca al modulo 010100 del sistema Booker la cual corres
 | Software | Git                  | Herramienta de controlde versiones.                       |
 | Servicio | GitHub               | Repositorio en la nube para el control de versiones git. |
 | Software | Jenkins v2.375.3 LTS | Herramienta para la intergracion continua                 |
-| Software | NodeJS               |                                                           |
+| Software | NodeJS               | *Necesario para instalar la herramienta newman*         |
 | Software | newman (cli)         | Cliente de linea de comandos de Postman                   |
+| Software | jenkins-cli          | Cliente de linea de comandos de Jenkins                   |
 
 ### 5. Configuracion del Entorno de Pruebas
 
@@ -133,8 +134,8 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
   Ejecutar *runJenkins.bat* para inciar Jenkins en la ruta: *localhost:9090*
 - Al ejecutar Jenkins por primera vez dejar la configuracion por defecto y establecer el usuario y clave.
 - Al ingresar al panel de control de Jenkins por primera vez, instalar el plugin NodeJS, reiniciar Jenkins.
-- Volvemos a ingresar a Jenkins en la opcion *"Panel de Control / Administrar Jenkins / Global Tool Configuration"* y ubicamos la seccion NodeJS, en ella pulsamos en *"Añadir NodeJS"*, colocamos un nombre (Ejm. My Local NodeJS), quitamos el check *"Instalar automaticamente"* y finalmente ingresamos nuestro directorio de instalacion de NodeJS (Ejm: D:\Program Files\nodejs). Guardamos los cambios y salimos.
-- Nota: Si queremos programar un cron en Jenkins tomar como referecia esta herramienta: https://crontab.cronhub.io/
+- Volvemos a ingresar a Jenkins en la opcion *"Panel de Control / Administrar Jenkins / Global Tool Configuration"* y ubicamos la seccion NodeJS, en ella pulsamos en *"Añadir NodeJS"*, colocamos un nombre (Ejm. My Local NodeJS), quitamos el check *"Instalar automaticamente"* y finalmente ingresamos nuestro directorio de instalacion de NodeJS (Ejm: *D:\Program Files\nodejs*). Guardamos los cambios y salimos.
+- *NOTA:* Si queremos programar un cron en Jenkins tomar como referecia esta herramienta: *https://crontab.cronhub.io/*
 
 ### 6. Estrategías de Pruebas
 
@@ -202,8 +203,11 @@ El proyecto es aprobado si se satisface los siguientes criterios de aceptación:
 
 ### 10. Entregables de Pruebas
 
-| Tipo de Prueba         | Tipo de Ejecución | Entregable                                       | Descripción                                                                                                                                |
-| :--------------------- | :----------------- | :----------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| Pruebas Funcionales    | Automatizada       | YP - Technical Challenge.postman_collection.json | Para la ejecucion automatizada se debe importar el entregable a la herramienta Postman<br />y ejecutar toda la Colección.                  |
-| Pruebas No Funcionales | Automatizada       | YP - Technical Challenge.postman_collection.json | Para la ejecucion automatizada se debe importar el entregable a la herramienta Postman<br />y ejecutar toda la Colección.                  |
-| Pruebas de Aceptación | Manual             | YP - Technical Challenge.postman_collection.json | Para la ejecucion manual se debe importar el entregable a la herramienta Postman<br />y ejecutar cada elemento Request segun sea necesario. |
+| Tipo de Prueba         | Tipo de Ejecución | Entregable                                                                  | Descripción                                                                                                                                |
+| :--------------------- | :----------------- | :-------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Pruebas Funcionales    | Automatizada       | TEST_CASES.postman_collection.json<br />TEST_CASES.postman_environment.json | Para la ejecucion automatizada se debe importar el entregable a la herramienta Postman<br />y ejecutar toda la Colección.                  |
+| Pruebas No Funcionales | Automatizada       | TEST_CASES.postman_collection.json<br />TEST_CASES.postman_environment.json | Para la ejecucion automatizada se debe importar el entregable a la herramienta Postman<br />y ejecutar toda la Colección.                  |
+| Pruebas de Aceptación | Manual             | TEST_CASES.postman_collection.json<br />TEST_CASES.postman_environment.json | Para la ejecucion manual se debe importar el entregable a la herramienta Postman<br />y ejecutar cada elemento Request segun sea necesario. |
+| N/A                    | Automatizada       | TEST_CASES.jenkins_job.xml                                                  | Se debe importar el Job en el sistema Jenkins                                                                                               |
+|                        |                    |                                                                             |                                                                                                                                             |
+|                        |                    |                                                                             |                                                                                                                                             |
