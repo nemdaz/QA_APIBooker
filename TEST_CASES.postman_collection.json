@@ -2051,6 +2051,80 @@
 					"item": [
 						{
 							"name": "Booking : Delete with Cookie",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
+											"console.log(\"Datos de Inicio : \" + bookingIdF10);\r",
+											"\r",
+											"if(!bookingIdF10 || bookingIdF10.length == 0){\r",
+											"\r",
+											"    pm.sendRequest({\r",
+											"        url: 'https://restful-booker.herokuapp.com/booking',\r",
+											"        method: 'GET',\r",
+											"        /*body: {\r",
+											"            mode: 'urlencoded',\r",
+											"            urlencoded: [\r",
+											"                { key: \"login\", value: \"YOUR_LOGIN\" },\r",
+											"                { key: \"password\", value: \"YOUR_PASSWORD\" }\r",
+											"            ]\r",
+											"        }*/\r",
+											"    }, function (err, res) {\r",
+											"        if (err === null) {\r",
+											"            var resDataEntry = [];\r",
+											"            var resJson = res.json();\r",
+											"            for(let i = 0; i < 2; i++){\r",
+											"                resDataEntry[i] = resJson[i].bookingid;\r",
+											"            }\r",
+											"            console.log(\"Datos de entrada : \" + resDataEntry);\r",
+											"            pm.collectionVariables.set(\"bookingIdCUR\", resDataEntry.shift());\r",
+											"            pm.collectionVariables.set(\"bookingIdF10\", resDataEntry);\r",
+											"            pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);   \r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.collectionVariables.set(\"bookingIdCUR\", bookingIdF10.shift());\r",
+											"    pm.collectionVariables.set(\"bookingIdF10\", bookingIdF10);\r",
+											"    pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"pm.test(\"Si se Elimina correctamente la reserva (booking). El endpoint responde 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"var responseData = pm.response.text();\r",
+											"\r",
+											"pm.test(\"El endpoint devuelve el mensaje de confirmación Created\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Created\");\r",
+											"});\r",
+											"\r",
+											"//\r",
+											"// ITERACION CON LOS DATOS DE \"Pre-resquest Script\"\r",
+											"//\r",
+											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
+											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
+											"    console.log(\"Siguiente request\")\r",
+											"    postman.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
+											"} else {\r",
+											"    //console.log(\"Fin iteracion de request\")\r",
+											"    //postman.setNextRequest(null);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -2083,7 +2157,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "4873"
+											"value": "{{bookingIdCUR}}"
 										}
 									]
 								}
@@ -2092,6 +2166,79 @@
 						},
 						{
 							"name": "Booking : Delete with Basic",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
+											"console.log(\"Datos de Inicio : \" + bookingIdF10);\r",
+											"\r",
+											"if(!bookingIdF10 || bookingIdF10.length == 0){\r",
+											"\r",
+											"    pm.sendRequest({\r",
+											"        url: 'https://restful-booker.herokuapp.com/booking',\r",
+											"        method: 'GET',\r",
+											"        /*body: {\r",
+											"            mode: 'urlencoded',\r",
+											"            urlencoded: [\r",
+											"                { key: \"login\", value: \"YOUR_LOGIN\" },\r",
+											"                { key: \"password\", value: \"YOUR_PASSWORD\" }\r",
+											"            ]\r",
+											"        }*/\r",
+											"    }, function (err, res) {\r",
+											"        if (err === null) {\r",
+											"            var resDataEntry = [];\r",
+											"            var resJson = res.json();\r",
+											"            for(let i = 0; i < 2; i++){\r",
+											"                resDataEntry[i] = resJson[i].bookingid;\r",
+											"            }\r",
+											"            console.log(\"Datos de entrada : \" + resDataEntry);\r",
+											"            pm.collectionVariables.set(\"bookingIdCUR\", resDataEntry.shift());\r",
+											"            pm.collectionVariables.set(\"bookingIdF10\", resDataEntry);\r",
+											"            pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);   \r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.collectionVariables.set(\"bookingIdCUR\", bookingIdF10.shift());\r",
+											"    pm.collectionVariables.set(\"bookingIdF10\", bookingIdF10);\r",
+											"    pm.collectionVariables.set(\"bookingIdMod\", Math.random() * 2000);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Si se Elimina correctamente la reserva (booking). El endpoint responde 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"var responseData = pm.response.text();\r",
+											"\r",
+											"pm.test(\"El endpoint devuelve el mensaje de confirmación Created\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Created\");\r",
+											"});\r",
+											"\r",
+											"//\r",
+											"// ITERACION CON LOS DATOS DE \"Pre-resquest Script\"\r",
+											"//\r",
+											"const bookingIdF10 = pm.collectionVariables.get(\"bookingIdF10\");\r",
+											"if (bookingIdF10 && bookingIdF10.length > 0){\r",
+											"    console.log(\"Siguiente request\")\r",
+											"    postman.setNextRequest(\"Booking : Update by JSON\"); //Nombre del Resquest\r",
+											"} else {\r",
+											"    //console.log(\"Fin iteracion de request\")\r",
+											"    //postman.setNextRequest(null);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -2124,7 +2271,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1121"
+											"value": "{{bookingIdCUR}}"
 										}
 									]
 								}
@@ -2135,7 +2282,146 @@
 				},
 				{
 					"name": "CP131 - DELETE",
-					"item": []
+					"item": [
+						{
+							"name": "Booking : Delete with Cookie - UnHappy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Si no se elimina, el endpoint devuelve codigo diferente de 201\", function () {\r",
+											"    pm.expect(pm.response.code != 201);\r",
+											"});\r",
+											"\r",
+											"var responseData = pm.response.text();\r",
+											"\r",
+											"pm.test(\"El endpoint devuelve el mensaje de error: Method Not Allowed\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Cookie",
+										"value": "token={{booking_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/:id",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0000000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking : Delete with Basic - UnHappy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Si no se elimina, el endpoint devuelve codigo diferente de 201\", function () {\r",
+											"    pm.expect(pm.response.code != 201);\r",
+											"});\r",
+											"\r",
+											"var responseData = pm.response.text();\r",
+											"\r",
+											"pm.test(\"El endpoint devuelve el mensaje de error: Method Not Allowed\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic {{booking_authorization}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking/:id",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "99999999999"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				},
 				{
 					"name": "CP140 - CREATE, UPDATE, UPDATE PARTIAL",

@@ -215,13 +215,6 @@ Los casos de pruebas son elaborados teniendo en cuenta los escenarios y alcance 
 
 ##### CP120 - UPDATE (URL)
 
-Happy
-
-Verificar que el endpoint Booking/UPDATE al recibir los datos en estructura (URL Encode), formato y valores correctos según la especificación devuelve un objeto XXX con todos los datos de la reserva actualizados.
-
-Complete / Partial
-
-
 
 | -                              | Detalle                                                                                                                                                                                |
 | :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -242,28 +235,36 @@ Complete / Partial
 
 ##### CP130 - DELETE
 
-Happy
 
-Verificar que el endpoint Booking/DELETE al recibir un id de reserva (booking) correctamente elimina el registro de la reserva y responde con la confirmacion.
+| -                              | Detalle                                                                                                                                                        |
+| :----------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pre-requisitos**       | https://restful-booker.herokuapp.com/booking/:id                                                                                                               |
+| **Datos de entrada**     | -                                                                                                                                                              |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/DELETE al recibir un id de reserva (booking) correctamente elimina el registro de la reserva y responde con la confirmacion. |
+| **Resultado esperado**   | El endpoint responde un mensaje de confirmación.                                                                                                              |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                              |
 
-With Cookie
-
-With Basic
+| Nro. de Paso | Descripcion                                                                                        | Datos                                | Resultado esperado                           |
+| :----------- | :------------------------------------------------------------------------------------------------- | :----------------------------------- | :------------------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado con Cookie. | Identificador en la URL del request. | Response con:<br />Mensaje de confirmación. |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado con Basic.  | Identificador en la URL del request. | Response con:<br />Mensaje de confirmación  |
 
 ##### CP131 - DELETE
 
-No Happy
 
-Verificar que el endpoint Booking/DELETE al recibir un id de reserva (booking) incorrecto o parámetro no definido devuelve un mensaje de error.
+| -                              | Detalle                                                                                                                                          |
+| :----------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pre-requisitos**       | https://restful-booker.herokuapp.com/booking/:id                                                                                                 |
+| **Datos de entrada**     | -                                                                                                                                                |
+| **Detalle de la prueba** | Verificar que el endpoint Booking/DELETE al recibir un id de reserva (booking) incorrecto o parámetro no definido devuelve un mensaje de error. |
+| **Resultado esperado**   | El endpoint responde un mensaje de error.                                                                                                        |
+| **Etiquetas**            | CUS02, Happy Path                                                                                                                                |
 
-With Cookie
-
-With Basic
+| Nro. de Paso | Descripcion                                                                                        | Datos                                | Resultado esperado                   |
+| :----------- | :------------------------------------------------------------------------------------------------- | :----------------------------------- | :----------------------------------- |
+| 1            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado con Cookie. | Identificador en la URL del request. | Response con:<br />Mensaje de error. |
+| 2            | Se envía solicitud POST al EndPoint.<br />Header del request según al especificado con Basic.  | Identificador en la URL del request. | Response con:<br />Mensaje de error  |
 
 ##### CP140 - CREATE, UPDATE, UPDATE PARTIAL
-
-No Happy
-
-Verificar que los EndPoint CREATE, UPDATE (Incluye Completo y Parcial) al recibir como entrada parametros/datos/objetos que no cumplen con la estructura definida (json, xml, url) responde con mensaje de error.
 
 END
