@@ -45,4 +45,16 @@ En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://r
 
 
 
+**UTILIDADES**
+
+```
+::Exportar Jenkins Job
+java -jar jenkins-cli.jar -s http://localhost:9090/ -auth username:password get-job "API Booker - Testing" > TEST_CASES.jenkins_job.xml
+
+::Crear/Importar Jenkins Job
+java -jar jenkins-cli.jar -s http://localhost:9090/ -auth username:password create-job "API Booker - Testing" < TEST_CASES.jenkins_job.xml
+```
+
+
+
 END
