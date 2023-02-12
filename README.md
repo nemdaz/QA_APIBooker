@@ -27,6 +27,7 @@ En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://r
 ###### 1. Plan de Pruebas
 
 - El archivo ***[Plan de Pruebas](./TEST_PLAN.md)*** es:[TEST_PLAN.md](./TEST_PLAN.md).
+- El archivo ***[Casos de Pruebas](./TEST_CASES.md)*** es:[TEST_CASES.md](./TEST_CASES.md).
 
 ###### 2. Código y cobertura
 
@@ -43,8 +44,6 @@ En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://r
 - Para las herramientas utilizadas ver el ***[Plan de Pruebas](./TEST_PLAN.md) sección 4***.
 - Para las técnicas utilizadas ver el ***[Plan de Pruebas](./TEST_PLAN.md) sección 6***.
 
-
-
 **UTILIDADES**
 
 ```
@@ -54,7 +53,5 @@ java -jar jenkins-cli.jar -s http://localhost:9090/ -auth username:password get-
 ::Crear/Importar Jenkins Job
 java -jar jenkins-cli.jar -s http://localhost:9090/ -auth username:password create-job "API Booker - Testing" < TEST_CASES.jenkins_job.xml
 ```
-
-
 
 END
