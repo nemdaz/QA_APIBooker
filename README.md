@@ -44,7 +44,7 @@ En la página [https://restful-booker.herokuapp.com/apidoc/index.html](https://r
 - Para las herramientas utilizadas ver el ***[Plan de Pruebas](./TEST_PLAN.md) sección 4***.
 - Para las técnicas utilizadas ver el ***[Plan de Pruebas](./TEST_PLAN.md) sección 6***.
 
-**UTILIDADES**
+##### **UTILIDADES**
 
 ```
 ::Exportar Jenkins Job
@@ -53,5 +53,23 @@ java -jar jenkins-cli.jar -s http://localhost:9090/ -auth username:password get-
 ::Crear/Importar Jenkins Job
 java -jar jenkins-cli.jar -s http://localhost:9090/ -auth username:password create-job "API Booker - Testing" < TEST_CASES.jenkins_job.xml
 ```
+
+##### **DEMO**
+
+###### **Postman Auth**
+
+![image info](resources/DemoTest_PostmanAuth.gif)
+
+###### **Postman Create**
+
+![image info](resources/DemoTest_PostmanCreate.gif)
+
+###### **Atomatizacion Postman (Archivo BAT)**
+
+![image info](resources/DemoTest_AutoBat.gif)
+
+###### **Integracion continua con Jenkins**
+
+![image info](resources/DemoTest_CIJenkins.gif)
 
 END

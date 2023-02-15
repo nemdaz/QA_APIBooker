@@ -135,7 +135,7 @@ De acuerdo a lo indicado en el punto "4. Entorno de Pruebas" se realiza la confi
 - Al ejecutar Jenkins por primera vez dejar la configuracion por defecto y establecer el usuario y clave.
 - Al ingresar al panel de control de Jenkins por primera vez, instalar el plugin NodeJS, reiniciar Jenkins.
 - Volvemos a ingresar a Jenkins en la opcion *"Panel de Control / Administrar Jenkins / Global Tool Configuration"* y ubicamos la seccion NodeJS, en ella pulsamos en *"Añadir NodeJS"*, colocamos un nombre (Ejm. My Local NodeJS), quitamos el check *"Instalar automaticamente"* y finalmente ingresamos nuestro directorio de instalacion de NodeJS (Ejm: *D:\Program Files\nodejs*). Guardamos los cambios y salimos.
-- *NOTA:* Si queremos programar un cron en Jenkins tomar como referecia esta herramienta: *https://crontab.cronhub.io/*
+- *NOTA:* Si queremos programar un cron en Jenkins tomar como referencia esta herramienta: *https://crontab.cronhub.io/*
 
 ### 6. Estrategías de Pruebas
 
